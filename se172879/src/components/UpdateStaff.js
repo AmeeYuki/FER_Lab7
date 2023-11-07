@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Container } from "@mui/material";
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
@@ -85,67 +85,84 @@ export default function UpdateStaff() {
 
   return (
     <div>
-      <h1 className="font-pages">Update staff</h1>
+      <Container>
+        <h1 className="font-pages">Update staff</h1>
+        <hr />
+        <form onSubmit={formik.handleSubmit}>
+          <Stack spacing={2}>
+            <Typography variant="h6">Name:</Typography>
+            <TextField
+              label=""
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.name && (
+              <Typography variant="caption" color="red">
+                {formik.errors.name}
+              </Typography>
+            )}
+            <Typography variant="h6">Address:</Typography>
 
-      <form onSubmit={formik.handleSubmit}>
-        <Stack spacing={2}>
-          <TextField
-            label="Name"
-            name="name"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-          />
-          {formik.errors.name && (
-            <Typography variant="caption" color="red">
-              {formik.errors.name}
-            </Typography>
-          )}
-          <TextField
-            label="address"
-            name="address"
-            value={formik.values.address}
-            onChange={formik.handleChange}
-          />
-          {formik.errors.address && (
-            <Typography variant="caption" color="red">
-              {formik.errors.address}
-            </Typography>
-          )}
-          <TextField
-            label="age"
-            name="age"
-            value={formik.values.age}
-            onChange={formik.handleChange}
-          />
-          {formik.errors.age && (
-            <Typography variant="caption" color="red">
-              {formik.errors.age}
-            </Typography>
-          )}
-          <TextField
-            label="avatar"
-            name="avatar"
-            value={formik.values.avatar}
-            onChange={formik.handleChange}
-          />
-          {formik.errors.avatar && (
-            <Typography variant="caption" color="red">
-              {formik.errors.avatar}
-            </Typography>
-          )}
-          <TextField
-            label="createdAt"
-            name="createdAt"
-            disabled
-            value={formik.values.createdAt}
-            onChange={formik.handleChange}
-          />
-        </Stack>
+            <TextField
+              label=""
+              name="address"
+              value={formik.values.address}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.address && (
+              <Typography variant="caption" color="red">
+                {formik.errors.address}
+              </Typography>
+            )}
+            <Typography variant="h6">Age:</Typography>
 
-        <Button variant="contained" size="small" type="submit">
-          Save
-        </Button>
-      </form>
+            <TextField
+              label=""
+              name="age"
+              value={formik.values.age}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.age && (
+              <Typography variant="caption" color="red">
+                {formik.errors.age}
+              </Typography>
+            )}
+            <Typography variant="h6">Avatar:</Typography>
+
+            <TextField
+              label=""
+              name="avatar"
+              value={formik.values.avatar}
+              onChange={formik.handleChange}
+            />
+            {formik.errors.avatar && (
+              <Typography variant="caption" color="red">
+                {formik.errors.avatar}
+              </Typography>
+            )}
+            <Typography variant="h6">Create At:</Typography>
+
+            <TextField
+              label=""
+              name="createdAt"
+              disabled
+              value={formik.values.createdAt}
+              onChange={formik.handleChange}
+            />
+          </Stack>
+          <Typography align="right">
+            <Button
+              className="mt-2"
+              variant="contained"
+              size="large"
+              type="submit"
+            >
+              Save
+            </Button>
+          </Typography>
+        </form>
+      </Container>
 
       <Dialog
         open={open}

@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Detail from "./components/Detail";
 import AddStaff from "./components/AddStaff";
 import UpdateStaff from "./components/UpdateStaff";
+import LoginGoogle from "./components/LoginGoogle";
 
 function App() {
   return (
